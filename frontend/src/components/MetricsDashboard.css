@@ -1,0 +1,136 @@
+.metrics-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metrics-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.metrics-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.metrics-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: var(--spacing-sm);
+}
+
+.metrics-empty {
+    text-align: center;
+    padding: var(--spacing-xl);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.metrics-empty p {
+    color: var(--text-secondary);
+}
+
+/* Summary Cards */
+.metrics-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.summary-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+}
+
+.summary-icon {
+    font-size: 2rem;
+}
+
+.summary-content h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--jeopardy-blue);
+}
+
+.summary-content p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-card {
+    padding: var(--spacing-md);
+}
+
+.chart-card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.chart-wrapper {
+    height: 250px;
+    position: relative;
+}
+
+/* Detailed Stats */
+.detailed-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.stats-section {
+    padding: var(--spacing-md);
+}
+
+.stats-section h3 {
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--jeopardy-blue);
+}
+
+.refresh-btn {
+    display: block;
+    margin: 0 auto;
+}
