@@ -1,18 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Colors - Simple & Clean */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F9FA;
+  /* Colors - Richer palette with more contrast */
+  --bg-primary: #0f0f13;
+  --bg-secondary: #16161d;
+  --bg-card: #1c1c26;
+  --bg-elevated: #252532;
 
-  --text-primary: #212529;
-  --text-secondary: #6C757D;
+  --text-primary: #f4f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
 
-  --jeopardy-blue: #0052CC;
-  --jeopardy-gold: #FFD700;
+  /* Accent colors - Warm gold meets cool blue */
+  --accent-gold: #f59e0b;
+  --accent-gold-light: #fbbf24;
+  --accent-blue: #3b82f6;
+  --accent-blue-dark: #2563eb;
+  --accent-gradient: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-blue) 100%);
 
-  --border: #DEE2E6;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  --success: #10b981;
+  --error: #ef4444;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -22,10 +37,15 @@
   --spacing-xl: 3rem;
 
   /* Border Radius */
-  --radius: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 
   /* Transitions */
-  --transition: 150ms ease;
+  --transition-fast: 150ms ease;
+  --transition: 250ms ease;
+  --transition-slow: 400ms ease;
 }
 
 * {
@@ -40,122 +60,83 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Typography */
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-/* Cards */
-.card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow);
 }
 
 /* Buttons */
 .btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all var(--transition);
   font-family: inherit;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
 .btn-primary {
-  background: var(--jeopardy-blue);
+  background: var(--accent-blue);
   color: white;
-  border-color: var(--jeopardy-blue);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-  background: #003d99;
-  border-color: #003d99;
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--text-primary);
-}
-
-.btn-secondary:hover {
-  background: var(--bg-secondary);
+  background: var(--accent-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--spacing-lg);
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  gap: var(--spacing-md);
+  transform: none;
 }
 
 /* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(10px);
   }
 
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .fade-in {
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
 }
 
-/* Loading Spinner */
+/* Spinner */
 .spinner {
-  width: 30px;
-  height: 30px;
-  border: 3px solid var(--border);
-  border-top-color: var(--jeopardy-blue);
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-gold);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -164,9 +145,9 @@ h3 {
   }
 }
 
-/* Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -174,10 +155,10 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 5px;
+  background: var(--bg-elevated);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: var(--text-muted);
 }
